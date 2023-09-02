@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Clock</title>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+</head>
+
+<style>
+    body {
+        background-color: rgb(216, 215, 215);
+    }
+
+    .card {
+        background-color: rgb(1, 16, 16);
+        width: 500px;
+        height: 200px;
+        margin: auto;
+        margin-top: 200px;
+        border: 10px solid rgb(253, 255, 255);
+        color: rgb(221, 223, 224);
+    }
+
+    .date {
+        font-size: 20px;
+        font-family: 'verdana';
+        margin-left: 138px;
+        margin-top: 20px;
+    }
+
+    .time {
+        font-size: 45px;
+        font-family: 'Orbitron', sans-serif;
+        margin-left: 135px;
+        margin-top: 27px;
+    }
+</style>
+
+
+<body>
+    <div class="card">
+        <div class="date">
+            <span id="day">Day</span>, <span id="date">Date</span> <span id="mon">Month</span>, <span id="yr">
+                Year</span>
+        </div>
+        <div class="time">
+            <span class="clock" id="h">hr</span> : <span class="clock" id="m">min</span> : <span class="clock"
+                id="s">sec</span>
+        </div>
+    </div>
+
+    <script>
+
+        function displayDate() {
+            const date = new Date();
+            const dayvar = date.getUTCDay();
+            const days = document.getElementById("day");
+
+            if (dayvar == 0) {
+                days.innerHTML = "Sunday";
+            }
+            else if (dayvar == 1) {
+                days.innerHTML = "Monday";
+            }
+            else if (dayvar == 2) {
+                days.innerHTML = "Tuesday";
+            }
+            else if (dayvar == 3) {
+                days.innerHTML = "Wednesday";
+            }
+            else if (dayvar == 4) {
+                days.innerHTML = "Thursday";
+            }
+            else if (dayvar == 5) {
+                days.innerHTML = "Friday";
+            }
+            else {
+                days.innerHTML = "Saturday";
+            }
+        }
+        displayDate()
+
+        function CalcMonth() {
+            const month = new Date();
+            const monthvar = month.getMonth();
+            const months = document.getElementById("mon");
+
+            if (monthvar == 0) {
+                months.innerHTML = "January";
+            }
+            else if (monthvar == 1) {
+                months.innerHTML = "February";
+            }
+            else if (monthvar == 2) {
+                months.innerHTML = "March";
+            }
+            else if (monthvar == 3) {
+                months.innerHTML = "April";
+            }
+            else if (monthvar == 4) {
+                months.innerHTML = "May";
+            }
+            else if (monthvar == 5) {
+                months.innerHTML = "June";
+            }
+            else if (monthvar == 6) {
+                months.innerHTML = "July";
+            }
+            else if (monthvar == 7) {
+                months.innerHTML = "August";
+            }
+            else if (monthvar == 8) {
+                months.innerHTML = "September";
+            }
+            else if (monthvar == 9) {
+                months.innerHTML = "October";
+            }
+            else if (monthvar == 10) {
+                months.innerHTML = "November";
+            }
+            else {
+                months.innerHTML = "December";
+            }
+        }
+        CalcMonth()
+
+        function displayTime() {
+            // Time
+            const time = new Date();
+            const hrs = document.getElementById('h')
+            hrs.innerHTML = time.getHours()
+            const min = document.getElementById("m");
+            min.innerHTML = time.getMinutes();
+            const sec = document.getElementById("s");
+            sec.innerHTML = time.getSeconds();
+
+            // Date
+            const date = document.getElementById("date");
+            date.innerHTML = time.getDate();
+            // const mon = document.getElementById("mon");
+            // mon.innerHTML = time.getMonth();
+            const yr = document.getElementById("yr");
+            yr.innerHTML = time.getFullYear();
+
+        }
+        displayTime()
+        setInterval(displayTime, 1000); 
+    </script>
+</body>
+
+</html>
